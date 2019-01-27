@@ -12,9 +12,8 @@ objects:
   spec:
     runPolicy: Serial
     source:
-      contextDir: frontend
       git:
-        uri: https://github.com/codequester/jc-wkshp
+        uri: https://github.com/jc-wkshp/frontend
       type: Git
     strategy:
       sourceStrategy:
@@ -30,7 +29,7 @@ objects:
     triggers:
     - type: GitHub
       github:
-        secret: jc-wkshp-101
+        secret: jc-wkshp-front-end
     - type: ConfigChange
     - type: ImageChange
 - apiVersion: v1
