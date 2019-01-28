@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Openshift Workshop Demo</h2>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><b>Pay To</b></div>
+            <div class="panel-body">
+                <form action="/postPayment" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="text" class="form-control" id="amount" placeholder="Enter Amount" name="amount">
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="details">Details:</label>
+                        <textarea class="form-control" rows="2" id="details" placeholder="Enter Details" name="details"></textarea>
+                    </div>-->
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading"><b>Payments</b></div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<payments.length; i++) {%>
+                        <tr>
+                            <td>payments[i].id</td>
+                            <td>payments[i].name</td>
+                            <td>payments[i].amount</td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

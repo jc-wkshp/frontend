@@ -20,7 +20,13 @@ app.listen(8080, function() {
   })
 
   app.get('/new', function (req, res) {
-    res.sendFile(__dirname + '/main.html')
+    //res.sendFile(__dirname + '/main.html')
+    request('http://msg-processor:8080/payments', function(err, response, body){
+      if (err) return console.log(err)
+      console.log('Respons Is -->' + response.statusCode)
+      console.log(body)
+      res.render('main.ejs', {payments: JSON.parse(body)})
+    });
   })
 
   app.get('/', function (req, res) {
@@ -52,7 +58,9 @@ app.listen(8080, function() {
       url: 'http://msg-processor:8080/payment',
       body: JSON.stringify(req.body)
     }, function(error, response, body){
-      console.log(body);
+      if (error) return console.log(err)
+      console.log('Message Published Successfully' + body);
+      response.redirect('/new')
     });
   })
   
