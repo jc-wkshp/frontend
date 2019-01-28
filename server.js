@@ -8,6 +8,7 @@ var request = require('request')
 
 app.set('view engine', 'ejs')
 
+app.use(express.static('web'));
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.listen(8080, function() {
@@ -16,6 +17,10 @@ app.listen(8080, function() {
 
   app.get('/status', function (req, res) {
     res.send('Frontend App Status [Running]')
+  })
+
+  app.get('/new', function (req, res) {
+    res.sendFile(__dirname + '/main.html')
   })
 
   app.get('/', function (req, res) {
