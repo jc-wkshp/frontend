@@ -15,7 +15,7 @@ app.listen(8080, function() {
   })
 
   app.get('/status', function (req, res) {
-    res.send('Frontend App Status - Running')
+    res.send('Frontend App Status [Running]')
   })
 
   app.get('/', function (req, res) {
