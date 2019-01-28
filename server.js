@@ -60,7 +60,7 @@ app.listen(8080, function() {
     }, function(error, response, body){
       if (error) return console.log(err)
       console.log('Message Published Successfully' + body);
-      response.redirect('/new')
+      res.redirect('/new')
     });
   })
   
