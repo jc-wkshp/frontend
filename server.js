@@ -47,5 +47,12 @@ app.listen(8080, function() {
 
   app.post('/postPayment', (req, res) => {
     console.log(req.body)
+    request.post({
+      headers: {'content-type' : 'application/json'},
+      url: 'http://msg-processor:8080/payment',
+      body: req.body
+    }, function(error, response, body){
+      console.log(body);
+    });
   })
   
