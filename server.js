@@ -46,6 +46,6 @@ app.listen(8080, function() {
 
 
   app.post('/postPayment', (req, res) => {
-    console.log(req.body.message)
+    console.log(req.body)
   })
   
